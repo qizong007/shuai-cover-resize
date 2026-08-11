@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1200" height="420" viewBox="0 0 1200 420"
+     role="img" aria-labelledby="title desc">
+  <title id="title">shuai-cover-resize</title>
+  <desc id="desc">One master cover reconstructed into four platform-native aspect ratios.</desc>
+
+  <defs>
+    <clipPath id="art-clip">
+      <rect x="548" y="35" width="624" height="351" rx="20"/>
+    </clipPath>
+    <linearGradient id="art-fade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#0D1424" stop-opacity="1"/>
+      <stop offset="0.42" stop-color="#0D1424" stop-opacity="0.16"/>
+      <stop offset="1" stop-color="#0D1424" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="base-glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#17223A"/>
+      <stop offset="1" stop-color="#0D1424"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="420" rx="28" fill="url(#base-glow)"/>
+  <path d="M0 318 C230 250 370 415 620 338 C815 278 998 290 1200 214 L1200 420 L0 420 Z"
+        fill="#111B30"/>
+
+  <g id="generated-art" clip-path="url(#art-clip)">
+    <image x="548" y="35" width="624" height="351"
+           xlink:href="youtube-cover-art.png" preserveAspectRatio="xMidYMid slice"/>
+    <rect x="548" y="35" width="370" height="351" fill="url(#art-fade)"/>
+  </g>
+
+  <g id="youtube-mock-copy" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif">
+    <rect x="582" y="76" width="138" height="30" rx="8" fill="#FF6B57"/>
+    <text x="596" y="97" fill="#0D1424" font-size="15" font-weight="760">YOUTUBE · 16:9</text>
+    <text x="582" y="165" fill="#F6F2E8" font-size="43" font-weight="820">一张封面</text>
+    <text x="582" y="219" fill="#59D8E6" font-size="43" font-weight="820">搞定全平台</text>
+    <rect x="582" y="238" width="210" height="5" rx="3" fill="#FF6B57"/>
+  </g>
+
+  <g id="title-block" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif">
+    <text x="56" y="65" fill="#59D8E6" font-size="18" font-weight="700" letter-spacing="2.4">AGENT SKILL · IMAGE RECOMPOSITION</text>
+    <text x="56" y="137" fill="#F6F2E8" font-size="54" font-weight="760" letter-spacing="-1.8">shuai-cover-resize</text>
+    <text x="56" y="190" fill="#B9C4D8" font-size="24" font-weight="500">ONE MASTER → EVERY FORMAT</text>
+
+    <g transform="translate(56 235)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+      <rect width="350" height="50" rx="12" fill="#F6F2E8"/>
+      <text x="18" y="33" fill="#0D1424" font-size="21" font-weight="700">3:4 · 4:3 · 16:9 · 2.35:1</text>
+    </g>
+
+    <g transform="translate(56 328)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+      <line x1="0" y1="0" x2="412" y2="0" stroke="#34445F"/>
+      <text x="0" y="34" fill="#8091AE" font-size="18">REBUILD LAYOUT</text>
+      <circle cx="185" cy="28" r="4" fill="#FF6B57"/>
+      <text x="205" y="34" fill="#8091AE" font-size="18">PRESERVE IDENTITY</text>
+    </g>
+  </g>
+
+  <g id="crop-marks" stroke="#59D8E6" stroke-width="3">
+    <path d="M548 69 V35 H582 M1138 35 H1172 V69"/>
+    <path d="M548 352 V386 H582 M1138 386 H1172 V352"/>
+  </g>
+</svg>

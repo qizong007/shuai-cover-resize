@@ -1,204 +1,132 @@
-# shuai-cover-resize
+<p align="right">
+  <strong>简体中文</strong> · <a href="./README.en.md">English</a>
+</p>
 
-面向多平台封面的高保真版式重构 Skill。
+<p align="center">
+  <img src="./assets/readme/hero.png" width="100%" alt="shuai-cover-resize：将同一张母版重构为四种平台画幅">
+</p>
 
-它把一张已有封面作为唯一母版，为小红书、B站、YouTube 和公众号分别重构画面。目标不是简单裁切或拉伸，而是在保持标题、主题、人物身份、核心物体和品牌风格一致的前提下，重新安排构图、留白、文字换行与人物景别。
+<h1 align="center">shuai-cover-resize</h1>
 
-> **推荐环境：在具备 ImageGen 图像编辑能力的 ChatGPT 中使用。** 本 Skill 提供工作流和质量约束，本身不包含图像生成模型。使用其他支持“基于源图编辑”的模型也可以，但效果尚未被同等验证。
+<p align="center">
+  一张母版，重构为小红书、B站、YouTube 与公众号封面。<br>
+  不是拉伸或硬裁切，而是重新组织构图，同时守住原文、人物身份和品牌风格。
+</p>
 
-[查看英文说明](#english)
+<p align="center">
+  <img src="./assets/readme/youtube-cover.png" width="86%" alt="基于真实人物照片重构的 16:9 YouTube 风封面示例"><br>
+  <sub>16:9 YouTube 风概念示例：ImageGen 负责重构人物与背景，SVG 负责准确文字和版式。</sub>
+</p>
 
-## 适用场景
+## 快速开始
 
-- 把同一张封面适配到多个内容平台。
-- 将横版封面重构为竖版，或将竖版重构为横版。
-- 扩展背景、移动人物、调整文字换行，而不破坏原始主题。
-- 保持人物身份、品牌色和核心视觉元素连续。
-- 生成多个比例后，逐张验收并只重试失败版本。
-
-## 支持的比例
-
-| 比例 | 主要平台 | 最低输出分辨率 | 默认行为 |
-| --- | --- | ---: | --- |
-| `3:4` | 小红书 | 1080×1440 | 默认生成 |
-| `4:3` | B站 | 1200×900 | 默认生成 |
-| `16:9` | YouTube | 1280×720 | 默认生成 |
-| `21:9` | 公众号 | 900×383 | 仅在明确要求时生成 |
-
-未指定比例时，默认输出 `4:3`、`3:4` 和 `16:9`。公众号头图实际常用比例约为 `2.35:1`，这里以 `21:9` 作为便于表达的近似值，并以 900×383 作为最低输出尺寸。
-
-## 安装
-
-将仓库克隆到 Agent 的 Skill 目录：
+使用 [Agent Skills CLI](https://skills.sh/docs/cli) 安装：
 
 ```bash
-git clone https://github.com/qizong007/shuai-cover-resize.git ~/.agents/skills/shuai-cover-resize
+npx skills add qizong007/shuai-cover-resize
 ```
 
-如果你的环境使用其他 Skill 路径，请保持仓库目录名为 `shuai-cover-resize`，并将整个目录放入对应位置。
-
-## 使用
-
-在支持 Skills 和源图编辑的 ChatGPT 或 Codex 环境中，上传原始封面并调用：
+CLI 会让你选择目标 Agent 和安装范围。安装完成后，上传源封面并调用：
 
 ```text
 使用 $shuai-cover-resize，把这张封面适配为 3:4、4:3 和 16:9。
 保持标题文字、人物身份和品牌色不变。
 ```
 
-也可以加入额外视觉要求：
+需要更新时：
 
-```text
-使用 $shuai-cover-resize 生成 16:9 YouTube 封面。
-人物放在右侧，标题放在左侧，保留更多上半身和手势。
+```bash
+npx skills update shuai-cover-resize
 ```
 
-额外要求拥有最高视觉优先级，但除非明确提出，不会改写标题、主题、人物身份或品牌信息。
+## 它解决什么
 
-## 工作方式
+同一张封面放进不同平台时，真正的问题通常不是尺寸，而是信息层级：横版标题到了竖版会挤压人物，人物放大后会遮住文字，背景不足又容易被粗暴拉伸。
 
-1. 检测源图尺寸与比例，复用已经符合目标比例的版本。
-2. 锁定所有可见文字、人物特征、核心物体、品牌色与信息层级。
-3. 从源图独立生成每个目标比例，不使用中间版本继续派生。
-4. 通过扩图、重排、移动、缩放和重新换行适配新画布，禁止非等比拉伸。
-5. 检查比例、分辨率、文字、人物、构图和画质，只重试失败版本。
-6. 按 `<原文件名>__3x4`、`__4x3`、`__16x9` 或 `__21x9` 命名交付。
+`shuai-cover-resize` 把源封面当作唯一母版，为每个比例独立重构：
 
-仓库中的 [`scripts/detect_ratio.py`](scripts/detect_ratio.py) 使用 Python 标准库检测 PNG、JPEG 和 GIF 的尺寸，并判断哪些比例需要重新生成。
+- 保持标题原文、主题、人物身份、核心物体和品牌识别不变。
+- 允许扩展背景、移动元素、调整景别、缩放主体和重新换行。
+- 禁止横向或纵向拉伸，也不使用已生成版本继续派生下一版。
+- 每个结果单独验收，只重试失败的比例。
+
+## 支持的平台
+
+| 比例 | 平台 | 构图重点 | 最低分辨率 |
+| --- | --- | --- | ---: |
+| `3:4` | 小红书 | 竖版高密度，优先保证人物和标题的手机可读性 | 1080×1440 |
+| `4:3` | B站 | 均衡横版，人物与标题形成清楚层级 | 1200×900 |
+| `16:9` | YouTube | 强焦点横版，人物与标题尽量左右分区 | 1280×720 |
+| `2.35:1` | 公众号 | 超宽编辑感，增加留白，默认弱化或移除人物 | 900×383 |
+
+未指定比例时默认生成 `4:3`、`3:4` 和 `16:9`。只有明确要求公众号版或 `2.35:1` 时才会增加超宽版本。
+
+## 推荐：在 ChatGPT 中使用 ImageGen
+
+> 本 Skill 最适合由具备 **ChatGPT ImageGen 图像编辑能力**的 Agent 执行。
+
+它是一套版式重构与验收工作流，本身不包含图像模型。执行环境必须能够把源封面作为图片输入交给图像编辑模型，而不是只根据文字重新想象一张新图。
+
+其他支持源图编辑的模型也可以尝试，但当前规则优先围绕 ImageGen 的编辑能力设计。不同模型在人物一致性、中文文字和扩图质量上会有明显差异。
+
+## 工作流程
+
+```text
+读取源图 → 锁定原文与身份 → 检测已有比例
+         → 从母版独立重构每个目标比例
+         → 检查尺寸、文字、人物、构图与画质
+         → 只重试失败版本 → 命名交付
+```
+
+仓库中的 [`detect_ratio.py`](./scripts/detect_ratio.py) 只依赖 Python 标准库，可检测 PNG、JPEG 和 GIF：
+
+```bash
+python3 scripts/detect_ratio.py cover.png 4:3 3:4 16:9
+```
+
+输出会标记哪些比例可以复用，哪些需要生成。
 
 ## 能力边界
 
-- **需要图像编辑能力。** 没有 ImageGen 或同类源图编辑工具时，本 Skill 只能提供构图方案和提示词，无法直接产出封面。
-- **优先使用 ChatGPT ImageGen。** 工作流针对“附加源图并在其基础上编辑”的方式设计；纯文生图会显著增加人物、文字和品牌信息漂移的风险。
-- **生成模型不等于排版工具。** 标题必须逐字验收。若模型反复生成错字，应先生成无字底图，再用可靠的排版工具叠加原文。
-- **无法承诺像素级复刻。** 人脸、字体、Logo、手部和细小装饰可能发生变化。对品牌资产要求严格时，应提供原始 Logo、字体或可编辑设计文件，并进行人工复核。
-- **源图质量决定上限。** 模糊、低分辨率、严重遮挡或文字不可辨认的源图，无法稳定恢复真实细节；看不清的文字不会被猜测。
-- **比例正确不代表可以免审。** 每个版本都应检查文字、人物数量、肢体、裁切安全区、Logo、水印和平台 UI 遮挡。
-- **请确保拥有素材使用权。** 上传人物照片、品牌资产或未公开内容前，应确认授权并评估隐私风险。
+- **文字必须人工验收。** 生成模型不是可靠的排版工具；若反复出现错字，应先生成无字底图，再用专业排版工具叠加原文。
+- **无法承诺像素级复刻。** 人脸、手部、字体、Logo 和细小装饰可能漂移；品牌要求严格时，应同时提供原始 Logo、字体或可编辑设计文件。
+- **源图质量决定上限。** 模糊、低分辨率、严重遮挡或不可辨认的内容无法稳定恢复；看不清的文字不会被猜测。
+- **比例正确不等于通过验收。** 每一版仍需检查人物数量、肢体、文字、Logo、水印、安全区和平台 UI 遮挡。
+- **请确认素材授权。** 上传人物照片、品牌资产或未公开内容前，应评估版权与隐私风险。
+
+## 输出约定
+
+生成文件放在源图所在目录：
+
+```text
+<原文件名>__3x4
+<原文件名>__4x3
+<原文件名>__16x9
+<原文件名>__235x100
+```
+
+文件已存在时追加序号，不覆盖旧结果。源图已经符合某个比例且没有额外编辑要求时，直接标注“复用原图”。
 
 ## 项目结构
 
 ```text
 shuai-cover-resize/
-├── SKILL.md
-├── README.md
-├── agents/
-│   └── openai.yaml
-└── scripts/
-    └── detect_ratio.py
+├── SKILL.md                 # 工作流与验收标准
+├── README.md                # 中文文档（默认）
+├── README.en.md             # English documentation
+├── agents/openai.yaml       # Skill 展示元数据
+├── scripts/detect_ratio.py  # 比例检测脚本
+└── assets/readme/           # README 视觉素材与可编辑源文件
 ```
 
 ## 维护与贡献
 
-这是一个长期维护的 Skill。修改时请保持以下原则：
+这是一个长期维护的 Agent Skill。提交变更时请遵守：
 
-- `SKILL.md` 是工作流与验收标准的唯一事实来源。
-- 平台规格、默认比例或最低分辨率发生变化时，同时更新中英文 README。
-- 修改脚本后，至少验证 PNG、JPEG 和 GIF 的尺寸检测。
-- 不接受会改写原文、拉伸画面、弱化人物身份一致性或跳过验收的变更。
-- 提交 Issue 时，请附上源图尺寸、目标比例、使用环境和具体失败现象；涉及隐私的素材请勿公开上传。
+- `SKILL.md` 是行为、默认值和验收标准的唯一事实来源。
+- 平台规格或最低分辨率变化时，同步更新中英文文档。
+- 修改脚本后，验证 PNG、JPEG 和 GIF 尺寸检测。
+- 不接受改写源文案、拉伸画面、降低身份一致性或跳过验收的变更。
+- 提交 Issue 时请附上源图尺寸、目标比例、使用环境和失败现象；不要公开上传隐私素材。
 
----
-
-<details id="english">
-<summary><strong>English documentation</strong></summary>
-
-## Overview
-
-`shuai-cover-resize` is a high-fidelity layout reconstruction skill for adapting one existing cover image to multiple publishing platforms.
-
-It treats the source cover as the single master and rebuilds the composition for Xiaohongshu, Bilibili, YouTube, and WeChat Official Accounts. It does not simply crop or stretch the image. Instead, it rearranges composition, spacing, line breaks, subject scale, and background extension while preserving the original title, subject identity, key objects, and brand style.
-
-> **Recommended environment: ChatGPT with ImageGen image-editing capabilities.** This skill defines the workflow and quality constraints; it does not include an image-generation model. Other models that can edit an attached source image may work, but they have not been validated to the same extent.
-
-## Use cases
-
-- Adapt one cover image to several publishing platforms.
-- Reconstruct landscape artwork as portrait artwork, or vice versa.
-- Extend backgrounds, reposition people, and reflow titles without changing the topic.
-- Preserve subject identity, brand colors, and key visual elements.
-- Validate every output independently and retry only failed variants.
-
-## Supported aspect ratios
-
-| Ratio | Primary platform | Minimum resolution | Default behavior |
-| --- | --- | ---: | --- |
-| `3:4` | Xiaohongshu | 1080×1440 | Generated by default |
-| `4:3` | Bilibili | 1200×900 | Generated by default |
-| `16:9` | YouTube | 1280×720 | Generated by default |
-| `21:9` | WeChat Official Accounts | 900×383 | Only when requested |
-
-When no ratio is specified, the skill defaults to `4:3`, `3:4`, and `16:9`. A WeChat header is commonly close to `2.35:1`; `21:9` is used as a convenient approximation, with 900×383 as the minimum output size.
-
-## Installation
-
-Clone the repository into your agent's skills directory:
-
-```bash
-git clone https://github.com/qizong007/shuai-cover-resize.git ~/.agents/skills/shuai-cover-resize
-```
-
-If your environment uses a different skills directory, keep the folder name `shuai-cover-resize` and place the complete repository there.
-
-## Usage
-
-In a ChatGPT or Codex environment that supports skills and source-image editing, attach the master cover and invoke:
-
-```text
-Use $shuai-cover-resize to adapt this cover to 3:4, 4:3, and 16:9.
-Keep the title, subject identity, and brand colors unchanged.
-```
-
-You may also provide composition-specific instructions:
-
-```text
-Use $shuai-cover-resize to create a 16:9 YouTube cover.
-Place the person on the right and the title on the left, showing more of the upper body and hand gesture.
-```
-
-Additional instructions receive the highest visual priority, but the title, topic, subject identity, and brand information remain unchanged unless explicitly requested.
-
-## Workflow
-
-1. Detect the source dimensions and aspect ratio; reuse an already matching version.
-2. Lock visible text, subject features, key objects, brand colors, and information hierarchy.
-3. Generate every target ratio independently from the source image.
-4. Adapt the canvas through outpainting, rearrangement, movement, scaling, and text reflow; never stretch non-uniformly.
-5. Validate ratio, resolution, text, people, composition, and image quality; retry failed variants only.
-6. Deliver files using `__3x4`, `__4x3`, `__16x9`, or `__21x9` suffixes.
-
-The included [`scripts/detect_ratio.py`](scripts/detect_ratio.py) uses only the Python standard library to inspect PNG, JPEG, and GIF dimensions and determine which target ratios still need generation.
-
-## Limitations
-
-- **An image-editing model is required.** Without ImageGen or an equivalent source-image editing tool, this skill can only provide composition plans and prompts.
-- **ChatGPT ImageGen is preferred.** The workflow assumes that the model receives and edits the attached source image. Text-to-image generation introduces substantially more identity, text, and brand drift.
-- **A generative model is not a typesetting engine.** Every title must be checked character by character. If text remains unstable, generate a clean background and add the exact copy with a reliable layout tool.
-- **Pixel-perfect reproduction is not guaranteed.** Faces, fonts, logos, hands, and small decorative details may change. Provide original brand assets or editable design files when exact fidelity is required.
-- **Source quality sets the upper bound.** Blurred, low-resolution, heavily occluded, or unreadable content cannot be restored reliably. Unreadable text must not be guessed.
-- **Correct dimensions do not remove the need for review.** Check text, subject count, anatomy, safe areas, logos, watermarks, and platform UI overlap for every output.
-- **Use only authorized materials.** Confirm usage rights and assess privacy risks before uploading portraits, brand assets, or confidential artwork.
-
-## Repository structure
-
-```text
-shuai-cover-resize/
-├── SKILL.md
-├── README.md
-├── agents/
-│   └── openai.yaml
-└── scripts/
-    └── detect_ratio.py
-```
-
-## Maintenance and contributions
-
-This skill is intended for long-term maintenance:
-
-- Treat `SKILL.md` as the single source of truth for workflow and acceptance criteria.
-- Update both Chinese and English documentation when platform specifications, default ratios, or minimum resolutions change.
-- Test PNG, JPEG, and GIF dimension detection after modifying the script.
-- Avoid changes that rewrite source copy, stretch artwork, weaken identity consistency, or skip validation.
-- When filing an issue, include source dimensions, target ratios, runtime environment, and the exact failure. Do not upload private source material publicly.
-
-</details>
+README Hero 使用 ImageGen 生成项目专属人物素材，并以 SVG 完成准确文字和比例框排版；生成提示词与可编辑布局保存在 [`assets/readme/source/`](./assets/readme/source/)。

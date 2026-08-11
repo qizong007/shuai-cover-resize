@@ -4,7 +4,7 @@
 Usage:
     python3 detect_ratio.py <image> [ratios...]
 
-    ratios: target ratios like 4:3 3:4 16:9 21:9 (default: 4:3 3:4 16:9)
+    ratios: target ratios like 4:3 3:4 16:9 2.35:1 (default: 4:3 3:4 16:9)
 
 Output: one line per target ratio — GENERATE or SKIP — plus the source dimensions.
 Supports PNG / JPEG / GIF with stdlib only. For other formats, fall back to:

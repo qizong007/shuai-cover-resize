@@ -1,0 +1,13 @@
+Use case: identity-preserve
+Asset type: 16:9 YouTube thumbnail base image and GitHub README proof visual
+Input images: Image 1 is the edit target and identity reference
+Primary request: reconstruct Image 1 as a polished YouTube-style creator thumbnail base, using the actual person from Image 1 rather than inventing a different person
+Scene/backdrop: extend the warm home-office and bookshelf environment into a wide cinematic frame; add restrained midnight-navy shadows, warm amber practical light, and subtle coral/cyan accents that match the shuai-cover-resize README palette
+Subject: exactly one person; preserve the face shape, round silver glasses, hairstyle, age, skin tone, natural facial details, dark navy shirt, and recognizable identity from Image 1
+Style/medium: high-fidelity editorial creator photography, realistic skin and fabric texture, crisp thumbnail-level contrast, polished but not plastic or over-retouched
+Composition/framing: strict 16:9 landscape; place the person on the right half, show head, shoulders, and more upper body than the source; keep the face large and unobstructed; leave generous clean negative space on the left for deterministic title typography; maintain 5–8% safe margins
+Lighting/mood: warm, confident, approachable, stronger subject/background separation, soft key light from the window direction and subtle cool rim light
+Constraints: edit the attached source image; preserve identity aggressively; no text, no letters, no numbers, no logos, no watermark, no extra person, no duplicated face, no extra limbs, no distorted glasses, no stretched anatomy; do not put anything important in the left title area
+Avoid: generic AI influencer look, exaggerated facial expression, neon overload, fake UI, floating icons, busy background, heavy beauty retouching
+Final image must be exactly 16:9.
+
