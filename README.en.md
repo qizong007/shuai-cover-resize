@@ -133,3 +133,7 @@ This Agent Skill is intended for long-term maintenance:
 - When filing an issue, include source dimensions, target ratios, runtime environment, and the exact failure. Do not upload private source material publicly.
 
 The README hero combines a project-specific ImageGen subject with deterministic SVG typography and ratio frames. The final prompt and editable layout live under [`assets/readme/source/`](./assets/readme/source/).
+
+## Acknowledgements
+
+The visual design and layout of this README were created with [oil-oil/beautify-github-readme](https://github.com/oil-oil/beautify-github-readme). Thanks to oil-oil for building and sharing this excellent skill.

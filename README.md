@@ -133,3 +133,7 @@ shuai-cover-resize/
 - 提交 Issue 时请附上源图尺寸、目标比例、使用环境和失败现象；不要公开上传隐私素材。
 
 README Hero 使用 ImageGen 生成项目专属人物素材，并以 SVG 完成准确文字和比例框排版；生成提示词与可编辑布局保存在 [`assets/readme/source/`](./assets/readme/source/)。
+
+## 致谢
+
+本项目 README 的视觉设计与排版基于 [oil-oil/beautify-github-readme](https://github.com/oil-oil/beautify-github-readme) 完成，感谢 oil-oil 提供这个优秀的 Skill。
