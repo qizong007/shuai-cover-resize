@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+     width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">一张封面，搞定全平台</title>
+  <desc id="desc">基于 README 演示图重构的 4:3 B站视频封面。</desc>
+
+  <defs>
+    <linearGradient id="titleShade" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#07101E" stop-opacity=".99"/>
+      <stop offset=".5" stop-color="#0D1424" stop-opacity=".92"/>
+      <stop offset=".76" stop-color="#0D1424" stop-opacity=".18"/>
+      <stop offset="1" stop-color="#0D1424" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="bottomShade" x1="0" y1="0" x2="0" y2="1">
+      <stop offset=".6" stop-color="#07101E" stop-opacity="0"/>
+      <stop offset="1" stop-color="#07101E" stop-opacity=".58"/>
+    </linearGradient>
+  </defs>
+
+  <image width="1200" height="900" xlink:href="youtube-cover-art.png"
+         preserveAspectRatio="xMidYMid slice"/>
+  <rect width="850" height="900" fill="url(#titleShade)"/>
+  <rect width="1200" height="900" fill="url(#bottomShade)"/>
+  <rect x="12" y="12" width="1176" height="876" rx="24" fill="none" stroke="#59D8E6" stroke-width="4"/>
+
+  <g transform="translate(66 68)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif">
+    <g>
+      <rect width="220" height="52" rx="13" fill="#FF6B57"/>
+      <text x="110" y="35" text-anchor="middle" fill="#0D1424" font-size="23" font-weight="760">AI 封面工作流</text>
+    </g>
+
+    <text x="0" y="212" fill="#F6F2E8" font-size="88" font-weight="820" letter-spacing="-3">一张封面</text>
+    <text x="0" y="320" fill="#59D8E6" font-size="88" font-weight="820" letter-spacing="-3">搞定全平台</text>
+    <rect x="0" y="352" width="492" height="9" rx="5" fill="#FF6B57"/>
+
+    <g transform="translate(0 410)" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">
+      <rect width="82" height="54" rx="11" fill="#F6F2E8"/>
+      <rect x="92" width="82" height="54" rx="11" fill="#F6F2E8"/>
+      <rect x="184" width="82" height="54" rx="11" fill="#F6F2E8"/>
+      <rect x="276" width="94" height="54" rx="11" fill="#F6F2E8"/>
+      <rect x="380" width="126" height="54" rx="11" fill="#F6F2E8"/>
+      <text x="20" y="36" fill="#0D1424" font-size="22" font-weight="700">1:1</text>
+      <text x="112" y="36" fill="#0D1424" font-size="22" font-weight="700">3:4</text>
+      <text x="204" y="36" fill="#0D1424" font-size="22" font-weight="700">4:3</text>
+      <text x="292" y="36" fill="#0D1424" font-size="22" font-weight="700">16:9</text>
+      <text x="394" y="36" fill="#0D1424" font-size="22" font-weight="700">2.35:1</text>
+    </g>
+
+    <text x="0" y="560" fill="#AAB8CF" font-size="21" font-weight="650" letter-spacing="1.4">RECOMPOSE · DON'T STRETCH</text>
+  </g>
+
+  <g stroke="#FF6B57" stroke-width="6" fill="none">
+    <path d="M34 88V34H88"/><path d="M1112 34H1166V88"/>
+    <path d="M34 812V866H88"/><path d="M1112 866H1166V812"/>
+  </g>
+</svg>

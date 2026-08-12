@@ -54,13 +54,14 @@ The hard part of publishing one cover across platforms is not the pixel dimensio
 
 | Ratio | Platform | Composition priority | Minimum resolution |
 | --- | --- | --- | ---: |
+| `1:1` | WeChat article | Square sharing image with a centered subject and readable message-list preview | 1080×1080 |
 | `3:4` | Xiaohongshu | Dense portrait layout with mobile-readable subject and title | 1080×1440 |
 | `4:3` | Bilibili | Balanced landscape hierarchy between subject and title | 1200×900 |
 | `3:4` / `4:3` | WeChat Channels | Portrait and landscape formats with a clear subject and title in feed previews | 1080×1440 / 1200×900 |
 | `16:9` | YouTube | Strong landscape focus with subject and title separated | 1280×720 |
 | `2.35:1` | WeChat article | Editorial ultra-wide layout with more negative space | 900×383 |
 
-When no ratio is specified, the skill defaults to `4:3`, `3:4`, and `16:9`; both `4:3` and `3:4` work for WeChat Channels. The `2.35:1` version is added only when a WeChat article or ultra-wide cover is explicitly requested.
+When no ratio is specified, the skill defaults to `4:3`, `3:4`, and `16:9`; both `4:3` and `3:4` work for WeChat Channels. A WeChat article request adds both the `1:1` sharing image and `2.35:1` header; when only one ratio is specified, only that version is generated.
 
 ## Recommended: ChatGPT with ImageGen
 
@@ -103,6 +104,7 @@ Generated files are placed beside the source image:
 <source-name>__3x4
 <source-name>__4x3
 <source-name>__16x9
+<source-name>__1x1
 <source-name>__235x100
 ```
 
