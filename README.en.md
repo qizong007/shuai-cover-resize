@@ -26,6 +26,8 @@ Install with the [Agent Skills CLI](https://skills.sh/docs/cli):
 npx skills add qizong007/shuai-cover-resize
 ```
 
+The install contains only the Skill instructions, metadata, and ratio detector; README files and showcase images are excluded.
+
 The CLI will ask you to select the target agent and installation scope. Then attach the source cover and invoke:
 
 ```text
@@ -80,10 +82,10 @@ Read source → lock copy and identity → detect matching ratios
             → retry failed variants only → deliver with stable names
 ```
 
-The included [`detect_ratio.py`](./scripts/detect_ratio.py) uses only the Python standard library and supports PNG, JPEG, and GIF:
+The included [`detect_ratio.py`](./skills/shuai-cover-resize/scripts/detect_ratio.py) uses only the Python standard library and supports PNG, JPEG, and GIF:
 
 ```bash
-python3 scripts/detect_ratio.py cover.png 4:3 3:4 16:9
+python3 skills/shuai-cover-resize/scripts/detect_ratio.py cover.png 4:3 3:4 16:9
 ```
 
 It reports which ratios can reuse the source and which require generation.
@@ -114,19 +116,20 @@ Existing files are never overwritten; a numeric suffix is appended instead. If t
 
 ```text
 shuai-cover-resize/
-├── SKILL.md                 # Workflow and acceptance criteria
 ├── README.md                # Chinese documentation (default)
 ├── README.en.md             # English documentation
-├── agents/openai.yaml       # Skill interface metadata
-├── scripts/detect_ratio.py  # Aspect-ratio detector
-└── assets/readme/           # README visuals and editable source files
+├── assets/readme/           # README visuals, excluded from Skill installs
+└── skills/shuai-cover-resize/
+    ├── SKILL.md                 # Workflow and acceptance criteria
+    ├── agents/openai.yaml       # Skill interface metadata
+    └── scripts/detect_ratio.py  # Aspect-ratio detector
 ```
 
 ## Maintenance and contributions
 
 This Agent Skill is intended for long-term maintenance:
 
-- Treat `SKILL.md` as the single source of truth for behavior, defaults, and acceptance criteria.
+- Treat [`skills/shuai-cover-resize/SKILL.md`](./skills/shuai-cover-resize/SKILL.md) as the single source of truth for behavior, defaults, and acceptance criteria.
 - Update both language versions when platform specifications or minimum resolutions change.
 - Test PNG, JPEG, and GIF dimension detection after modifying the script.
 - Avoid changes that rewrite source copy, stretch artwork, weaken identity consistency, or skip validation.

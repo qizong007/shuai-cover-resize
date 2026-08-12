@@ -26,6 +26,8 @@
 npx skills add qizong007/shuai-cover-resize
 ```
 
+安装内容仅包含 Skill 运行所需的说明、元数据和比例检测脚本，不包含 README 与展示图片。
+
 CLI 会让你选择目标 Agent 和安装范围。安装完成后，上传源封面并调用：
 
 ```text
@@ -80,10 +82,10 @@ npx skills update shuai-cover-resize
          → 只重试失败版本 → 命名交付
 ```
 
-仓库中的 [`detect_ratio.py`](./scripts/detect_ratio.py) 只依赖 Python 标准库，可检测 PNG、JPEG 和 GIF：
+仓库中的 [`detect_ratio.py`](./skills/shuai-cover-resize/scripts/detect_ratio.py) 只依赖 Python 标准库，可检测 PNG、JPEG 和 GIF：
 
 ```bash
-python3 scripts/detect_ratio.py cover.png 4:3 3:4 16:9
+python3 skills/shuai-cover-resize/scripts/detect_ratio.py cover.png 4:3 3:4 16:9
 ```
 
 输出会标记哪些比例可以复用，哪些需要生成。
@@ -114,19 +116,20 @@ python3 scripts/detect_ratio.py cover.png 4:3 3:4 16:9
 
 ```text
 shuai-cover-resize/
-├── SKILL.md                 # 工作流与验收标准
 ├── README.md                # 中文文档（默认）
 ├── README.en.md             # English documentation
-├── agents/openai.yaml       # Skill 展示元数据
-├── scripts/detect_ratio.py  # 比例检测脚本
-└── assets/readme/           # README 视觉素材与可编辑源文件
+├── assets/readme/           # README 视觉素材，不随 Skill 安装
+└── skills/shuai-cover-resize/
+    ├── SKILL.md                 # 工作流与验收标准
+    ├── agents/openai.yaml       # Skill 展示元数据
+    └── scripts/detect_ratio.py  # 比例检测脚本
 ```
 
 ## 维护与贡献
 
 这是一个长期维护的 Agent Skill。提交变更时请遵守：
 
-- `SKILL.md` 是行为、默认值和验收标准的唯一事实来源。
+- [`skills/shuai-cover-resize/SKILL.md`](./skills/shuai-cover-resize/SKILL.md) 是行为、默认值和验收标准的唯一事实来源。
 - 平台规格或最低分辨率变化时，同步更新中英文文档。
 - 修改脚本后，验证 PNG、JPEG 和 GIF 尺寸检测。
 - 不接受改写源文案、拉伸画面、降低身份一致性或跳过验收的变更。
