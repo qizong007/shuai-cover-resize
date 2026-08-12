@@ -3,13 +3,13 @@
 </p>
 
 <p align="center">
-  <img src="./assets/readme/hero.png" width="100%" alt="shuai-cover-resize reconstructs one master cover for four platform-native aspect ratios">
+  <img src="./assets/readme/hero.png" width="100%" alt="shuai-cover-resize reconstructs one master cover for multiple platform-native aspect ratios">
 </p>
 
 <h1 align="center">shuai-cover-resize</h1>
 
 <p align="center">
-  Recompose one master cover for Xiaohongshu, Bilibili, YouTube, and WeChat.<br>
+  Recompose one master cover for Xiaohongshu, Bilibili, YouTube, WeChat Channels, and WeChat articles.<br>
   No stretching or blind cropping—rebuild the layout while preserving copy, identity, and brand style.
 </p>
 
@@ -56,10 +56,11 @@ The hard part of publishing one cover across platforms is not the pixel dimensio
 | --- | --- | --- | ---: |
 | `3:4` | Xiaohongshu | Dense portrait layout with mobile-readable subject and title | 1080×1440 |
 | `4:3` | Bilibili | Balanced landscape hierarchy between subject and title | 1200×900 |
+| `3:4` / `4:3` | WeChat Channels | Portrait and landscape formats with a clear subject and title in feed previews | 1080×1440 / 1200×900 |
 | `16:9` | YouTube | Strong landscape focus with subject and title separated | 1280×720 |
-| `2.35:1` | WeChat | Editorial ultra-wide layout with more negative space | 900×383 |
+| `2.35:1` | WeChat article | Editorial ultra-wide layout with more negative space | 900×383 |
 
-When no ratio is specified, the skill defaults to `4:3`, `3:4`, and `16:9`. The `2.35:1` version is added only when WeChat or an ultra-wide cover is explicitly requested.
+When no ratio is specified, the skill defaults to `4:3`, `3:4`, and `16:9`; both `4:3` and `3:4` work for WeChat Channels. The `2.35:1` version is added only when a WeChat article or ultra-wide cover is explicitly requested.
 
 ## Recommended: ChatGPT with ImageGen
 

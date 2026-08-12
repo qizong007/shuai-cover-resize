@@ -1,4 +1,4 @@
 interface:
   display_name: "封面多比例适配"
-  short_description: "将一张封面稳定重构为小红书、B站、YouTube 与公众号版本"
+  short_description: "将一张封面重构为小红书、B站、YouTube、视频号与公众号版本"
   default_prompt: "使用 $shuai-cover-resize 将这张封面适配为各平台比例，并保持原文案和核心画面一致。"
