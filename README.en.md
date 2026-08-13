@@ -144,8 +144,8 @@ The visual design and layout of this README were created with [oil-oil/beautify-
 ## Follow the maker
 
 <p align="center">
-  <a href="https://space.bilibili.com/3493077649983936"><img src="./assets/readme/follow-on-bilibili.svg" width="420" alt="Follow the maker on Bilibili at @qizong007"></a>
-  <a href="https://www.youtube.com/@qizong007"><img src="./assets/readme/follow-on-youtube.svg" width="420" alt="Follow the maker on YouTube at @qizong007"></a>
+  <a href="https://space.bilibili.com/3493077649983936"><img src="./assets/readme/follow-on-bilibili.svg" width="49%" alt="Follow the maker on Bilibili at @qizong007"></a>
+  <a href="https://www.youtube.com/@qizong007"><img src="./assets/readme/follow-on-youtube.svg" width="49%" alt="Follow the maker on YouTube at @qizong007"></a>
 </p>
 
 ## License

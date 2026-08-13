@@ -144,8 +144,8 @@ README Hero 使用 ImageGen 生成项目专属人物素材，并以 SVG 完成�
 ## 关注作者
 
 <p align="center">
-  <a href="https://space.bilibili.com/3493077649983936"><img src="./assets/readme/follow-on-bilibili.svg" width="420" alt="在 B 站关注作者 @qizong007"></a>
-  <a href="https://www.youtube.com/@qizong007"><img src="./assets/readme/follow-on-youtube.svg" width="420" alt="在 YouTube 关注作者 @qizong007"></a>
+  <a href="https://space.bilibili.com/3493077649983936"><img src="./assets/readme/follow-on-bilibili.svg" width="49%" alt="在 B 站关注作者 @qizong007"></a>
+  <a href="https://www.youtube.com/@qizong007"><img src="./assets/readme/follow-on-youtube.svg" width="49%" alt="在 YouTube 关注作者 @qizong007"></a>
 </p>
 
 ## 许可证
