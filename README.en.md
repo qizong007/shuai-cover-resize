@@ -140,3 +140,14 @@ The README hero combines a project-specific ImageGen subject with deterministic 
 ## Acknowledgements
 
 The visual design and layout of this README were created with [oil-oil/beautify-github-readme](https://github.com/oil-oil/beautify-github-readme). Thanks to oil-oil for building and sharing this excellent skill.
+
+## Follow the maker
+
+<p align="center">
+  <a href="https://space.bilibili.com/3493077649983936"><img src="./assets/readme/follow-on-bilibili.svg" width="420" alt="Follow the maker on Bilibili at @qizong007"></a>
+  <a href="https://www.youtube.com/@qizong007"><img src="./assets/readme/follow-on-youtube.svg" width="420" alt="Follow the maker on YouTube at @qizong007"></a>
+</p>
+
+## License
+
+This project is licensed under the [MIT License](./LICENSE).

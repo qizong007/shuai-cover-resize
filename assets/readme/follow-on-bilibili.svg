@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="104" viewBox="0 0 520 104" role="img" aria-labelledby="title desc">
+  <title id="title">在 B 站关注 qizong007</title>
+  <desc id="desc">链接到 qizong007 B 站主页的粉色网格卡片。</desc>
+  <defs>
+    <linearGradient id="surface" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset=".58" stop-color="#FFF8FA"/>
+      <stop offset="1" stop-color="#F8E8EE"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="50%" cy="50%" r="50%">
+      <stop offset="0" stop-color="#FB7299" stop-opacity=".28"/>
+      <stop offset=".58" stop-color="#FFD4E0" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="rule" x1="0" y1="0" x2="1" y2="0">
+      <stop stop-color="#111111"/>
+      <stop offset=".7" stop-color="#FB7299"/>
+      <stop offset="1" stop-color="#FB7299" stop-opacity=".12"/>
+    </linearGradient>
+    <pattern id="grid" width="16" height="16" patternUnits="userSpaceOnUse">
+      <path d="M16 0H0V16" fill="none" stroke="#3D1522" stroke-opacity=".055"/>
+    </pattern>
+    <clipPath id="frame">
+      <rect width="520" height="104" rx="14"/>
+    </clipPath>
+  </defs>
+
+  <g clip-path="url(#frame)">
+    <rect width="520" height="104" fill="url(#surface)"/>
+    <rect width="520" height="104" fill="url(#grid)"/>
+    <ellipse cx="449" cy="52" rx="108" ry="92" fill="url(#glow)"/>
+
+    <g transform="translate(31 19)" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', sans-serif">
+      <text x="0" y="12" fill="#6D5A60" font-size="9" font-weight="750" letter-spacing="2.2">FOLLOW THE MAKER</text>
+      <text x="0" y="48" fill="#0A0A0A" font-size="27" font-weight="800" letter-spacing="-.7">@qizong007</text>
+      <path d="M0 61H316" stroke="url(#rule)" stroke-width="1"/>
+      <text x="0" y="75" fill="#806B72" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="7.5" font-weight="650" letter-spacing="1.05">BILIBILI / 3493077649983936</text>
+    </g>
+
+    <!-- Bilibili glyph supplied by the repository owner in bilibili-line.svg. -->
+    <g transform="translate(414 14) scale(.075)">
+      <path d="M306.005333 117.632L444.330667 256h135.296l138.368-138.325333a42.666667 42.666667 0 1 1 60.373333 60.373333l-78.037333 77.952L789.333333 256A149.333333 149.333333 0 0 1 938.666667 405.333333v341.333334a149.333333 149.333333 0 0 1-149.333334 149.333333h-554.666666A149.333333 149.333333 0 0 1 85.333333 746.666667v-341.333334A149.333333 149.333333 0 0 1 234.666667 256h88.96L245.632 177.962667a42.666667 42.666667 0 0 1 60.373333-60.373334zM789.333333 341.333333h-554.666666a64 64 0 0 0-63.701334 57.856L170.666667 405.333333v341.333334a64 64 0 0 0 57.856 63.701333L234.666667 810.666667h554.666666a64 64 0 0 0 63.701334-57.813334L853.333333 746.666667v-341.333334A64 64 0 0 0 789.333333 341.333333zM341.333333 469.333333a42.666667 42.666667 0 0 1 42.666667 42.666667v85.333333a42.666667 42.666667 0 1 1-85.333333 0v-85.333333a42.666667 42.666667 0 0 1 42.666666-42.666667z m341.333334 0a42.666667 42.666667 0 0 1 42.666666 42.666667v85.333333a42.666667 42.666667 0 1 1-85.333333 0v-85.333333a42.666667 42.666667 0 0 1 42.666667-42.666667z" fill="#FB7299"/>
+    </g>
+    <path d="M418 14h10M418 14v10M511 90h-10M511 90V80" fill="none" stroke="#FB7299" stroke-width="1" opacity=".7"/>
+  </g>
+
+  <rect x=".5" y=".5" width="519" height="103" rx="13.5" fill="none" stroke="#D8B8C3"/>
+</svg>
