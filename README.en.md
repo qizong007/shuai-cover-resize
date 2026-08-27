@@ -9,7 +9,7 @@
 <h1 align="center">shuai-cover-resize</h1>
 
 <p align="center">
-  Recompose one master cover for Xiaohongshu, Bilibili, YouTube, WeChat Channels, and WeChat articles.<br>
+  Recompose one master cover for Xiaohongshu, Bilibili, YouTube, WeChat Channels, WeChat articles, and X Articles.<br>
   No stretching or blind cropping—rebuild the layout while preserving copy, identity, and brand style.
 </p>
 
@@ -61,9 +61,10 @@ The hard part of publishing one cover across platforms is not the pixel dimensio
 | `4:3` | Bilibili | Balanced landscape hierarchy between subject and title | 1200×900 |
 | `3:4` / `4:3` | WeChat Channels | Portrait and landscape formats with a clear subject and title in feed previews | 1080×1440 / 1200×900 |
 | `16:9` | YouTube | Strong landscape focus with subject and title separated | 1280×720 |
+| `5:2` | X Articles | Editorial ultra-wide layout that removes real people whenever possible and carries the topic through scenery, objects, or abstract visuals | 1500×600 |
 | `2.35:1` | WeChat article | Editorial ultra-wide layout with more negative space | 900×383 |
 
-When no ratio is specified, the skill defaults to `4:3`, `3:4`, and `16:9`; both `4:3` and `3:4` work for WeChat Channels. A WeChat article request adds both the `1:1` sharing image and `2.35:1` header; when only one ratio is specified, only that version is generated.
+When no ratio is specified, the skill defaults to `4:3`, `3:4`, and `16:9`; both `4:3` and `3:4` work for WeChat Channels. A WeChat article request adds both the `1:1` sharing image and `2.35:1` header; an X Article request adds `5:2`. When only one ratio is specified, only that version is generated.
 
 ## Recommended: ChatGPT with ImageGen
 
@@ -106,6 +107,7 @@ Generated files are placed beside the source image:
 <source-name>__3x4
 <source-name>__4x3
 <source-name>__16x9
+<source-name>__5x2
 <source-name>__1x1
 <source-name>__235x100
 ```
