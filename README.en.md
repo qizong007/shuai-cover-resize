@@ -18,6 +18,12 @@
   <sub>Conceptual 16:9 YouTube example: ImageGen reconstructs the person and background; SVG keeps copy and layout exact.</sub>
 </p>
 
+## Example: one theme, three aspect ratios
+
+This magpie cover set keeps the person, copy, and blue-and-gold palette while adjusting subject scale, icon placement, and title line breaks for each format.
+
+![magpie cover showcase: 4:3 at top left, 16:9 at bottom left, and 3:4 on the right, each preserving its original aspect ratio](./assets/readme/magpie-cover-ratios.png)
+
 ## Quick start
 
 Install with the [Agent Skills CLI](https://skills.sh/docs/cli):

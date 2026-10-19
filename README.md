@@ -18,6 +18,12 @@
   <sub>16:9 YouTube 风概念示例：ImageGen 负责重构人物与背景，SVG 负责准确文字和版式。</sub>
 </p>
 
+## 案例：同一主题，三种比例
+
+同一套 magpie 封面，保留人物、文案和蓝金配色，分别调整人物大小、图标位置与标题换行。
+
+![magpie 封面案例：左上 4:3、左下 16:9、右侧 3:4，三张原图均保持原始比例](./assets/readme/magpie-cover-ratios.png)
+
 ## 快速开始
 
 使用 [Agent Skills CLI](https://skills.sh/docs/cli) 安装：
